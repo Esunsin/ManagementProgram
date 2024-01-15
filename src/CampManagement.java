@@ -3,8 +3,9 @@ import domain.ScoreList;
 import domain.Student;
 import domain.StudentList;
 import domain.SubjectList;
-import service.RegisterStudent;
-import service.RegisterSubject;
+import service.RoundAndScoreManagement;
+import service.StudentManagement;
+import service.SubjectManagement;
 import service.ShowStudentList;
 
 import java.util.Scanner;
@@ -20,9 +21,10 @@ public class CampManagement {
 
         //할당
         Frame frame = new Frame();
-        RegisterStudent registerStudent = new RegisterStudent();
-        RegisterSubject registerSubject = new RegisterSubject();
+        StudentManagement studentManagement = new StudentManagement();
+        SubjectManagement subjectManagement = new SubjectManagement();
         ShowStudentList showStudentList = new ShowStudentList();
+        RoundAndScoreManagement roundAndScoreManagement = new RoundAndScoreManagement();
 
 
         while (true) {
@@ -32,7 +34,7 @@ public class CampManagement {
                 int click = input.nextInt();
                 //수강생 등록
                 if (click == 1) {
-                    registerStudent.createStudent(studentRepository);
+                    studentManagement.createStudent(studentRepository);
                 }
                 //수강생 목록
                 if (click == 2) {
@@ -40,19 +42,19 @@ public class CampManagement {
                 }
                 //수강생 과목별 시험 회차 및 점수 등록
                 if (click == 3) {
-
+                    roundAndScoreManagement.registerRoundAndScore(studentRepository,scoreRepository);
                 }
                 //수강생 과목별 시험 회차 및 점수 수정
                 if (click == 4) {
-
+                    roundAndScoreManagement.updateRoundAndScore(studentRepository,scoreRepository);
                 }
                 //수강생 특정 회차별 등급 조회
                 if (click == 5) {
-
+                    roundAndScoreManagement.showGradeByTestNumber(studentRepository,scoreRepository);
                 }
                 //수강생 과목 등록
                 if (click == 6){
-                    Student addedStudent = registerSubject.addSubjectsToStudent(studentRepository, subjectRepository);
+                    Student addedStudent = subjectManagement.addSubjectsToStudent(studentRepository, subjectRepository);
                     addedStudent.showStudentInfo();
                     addedStudent.showSubjectsRegisteredByStudent();
                 }

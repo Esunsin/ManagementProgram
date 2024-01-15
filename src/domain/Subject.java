@@ -16,4 +16,8 @@ public class Subject {
         System.out.println("id : "+id + " | name : " + name + " | 필수/선택 : " + optionalRequired);
     }
 
+    public boolean isEssential(){
+        if(optionalRequired.equals(OptionalRequired.ESSENTIAL)) return true;
+        else return false;
+    }
 }

@@ -19,7 +19,6 @@ public class Student {
         }
     }
 
-
     public void showStudentInfo(){
         System.out.println("id : " + id + " | name : " + name);
     }
@@ -28,4 +27,8 @@ public class Student {
         System.out.println("[등록한 과목]");
         subjectList.showSubjectList();
     }
+    public Subject pullRegisterSubjectById(Integer subjectId){
+        return subjectList.pullSubjectById(subjectId);
+    }
 }
+

@@ -1,11 +1,15 @@
 package data;
 
 import domain.*;
+import service.KeepGrade;
 
 public class InitData {
     private SubjectList subjectList = new SubjectList();
     private StudentList studentList = new StudentList();
     private ScoreList scoreList = new ScoreList();
+
+    //고쳐야댐
+    private KeepGrade keepGrade = new KeepGrade();
 
     public ScoreList scoreList() {
         initScore();
@@ -40,7 +44,9 @@ public class InitData {
         studentList.addStudent(new Student("홍세희"));
     }
     private void initScore(){
-        scoreList.addScore(new Score(1,1,1,95));
+        Score score1 = scoreList.addScore(new Score(1, 1, 1, 95));
+        String keepScore = keepGrade.keepScore(score1,subjectList.pullSubjectById(1));
+        score1.keepGrade(keepScore);
 
     }
 

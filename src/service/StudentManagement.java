@@ -2,13 +2,10 @@ package service;
 
 import domain.Student;
 import domain.StudentList;
-import domain.SubjectList;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
-public class RegisterStudent {
+public class StudentManagement {
     private Scanner scanner = new Scanner(System.in);
 
     public void createStudent(StudentList studentRepository) {

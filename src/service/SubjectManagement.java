@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class RegisterSubject {
+public class SubjectManagement {
     private Scanner scanner = new Scanner(System.in);
     public Student addSubjectsToStudent(StudentList studentRepository,SubjectList subjectRepository){
         System.out.println("[ 학생 목록 ]");
