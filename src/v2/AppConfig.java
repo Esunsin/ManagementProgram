@@ -1,13 +1,11 @@
 package v2;
 
-import v2.repository.MemoryStudentRepository;
-import v2.repository.StudentRepository;
-import v2.repository.SubjectRepository;
-import v2.repository.MemorySubjectRepository;
-import v2.service.StudentServiceImpl;
-import v2.service.StudentService;
-import v2.service.SubjectService;
-import v2.service.SubjectServiceImpl;
+import v2.management.ScoreManage;
+import v2.management.ScoreManageImpl1;
+import v2.management.StudentManage;
+import v2.management.StudentManageImpl1;
+import v2.repository.*;
+import v2.service.*;
 
 public class AppConfig {
 
@@ -28,4 +26,17 @@ public class AppConfig {
         return memorySubjectRepository;
     }
 
+    private ScoreRepository scoreRepository() {
+        return new MemoryScoreRepository();
+    }
+    public ScoreService scoreService(){
+        return new ScoreServiceImpl(scoreRepository());
+    }
+    public StudentManage studentManage(){
+        return new StudentManageImpl1(studentService(), subjectService());
+    }
+
+    public ScoreManage scoreManage(){
+        return new ScoreManageImpl1(studentService(), subjectService(), scoreService());
+    }
 }

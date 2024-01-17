@@ -19,6 +19,10 @@ public class Subject {
         return name;
     }
 
+    public OptionalRequired getOptionalRequired() {
+        return optionalRequired;
+    }
+
     @Override
     public String toString() {
         return "Subject{" +

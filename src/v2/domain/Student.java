@@ -20,6 +20,10 @@ public class Student {
         return name;
     }
 
+    public void addSubject(Subject subject) {
+        registeredSubject.add(subject);
+    }
+
     public List<Subject> getRegisteredSubject() {
         return registeredSubject;
     }
@@ -30,6 +34,11 @@ public class Student {
                 "studentId=" + studentId +
                 ", name='" + name + '\'' +
                 '}';
+    }
+    public void showRegisteredSubject(){
+        for (Subject subject : registeredSubject) {
+            System.out.println(subject);
+        }
     }
 }
 

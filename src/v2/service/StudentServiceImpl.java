@@ -2,6 +2,7 @@ package v2.service;
 
 import v2.domain.Student;
 import v2.repository.StudentRepository;
+import v2.repository.SubjectRepository;
 
 import java.util.Set;
 
@@ -22,6 +23,8 @@ public class StudentServiceImpl implements StudentService{
         System.out.println(findStudent);
         return findStudent;
     }
+
+
     @Override
     public void showAllStudent(){
         Set<Long> allId = studentRepository.findAllId();
